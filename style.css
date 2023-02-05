@@ -6,7 +6,9 @@
   --neutral-two: hsl(246, 25%, 77%);
 }
 
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
@@ -46,13 +48,17 @@ section {
 .main-heading {
   font-size: 4.8rem;
   margin-bottom: 2.4rem;
+  animation: moveInBottom 1.25s ease;
 }
 
 .main-description {
   line-height: 1.7;
+  animation: moveInBottom 1.35s ease;
 }
 
-/* .box-form {} */
+.box-form {
+  animation: moveInBottom 1.55s ease;
+}
 
 .box-trial {
   background-color: var(--accent-one);
@@ -79,13 +85,14 @@ input {
   width: 100%;
   padding: 1.6rem 2.8rem;
   border-radius: 4px;
-  border: 1px solid hsla(246, 25%, 77%, 0.5);
+  border: 2px solid hsla(246, 25%, 77%, 0.5);
   font-family: inherit;
+  font-weight: 600;
   transition: all 0.3s ease;
 }
 
 input:hover {
-  border: 1px solid hsl(249, 10%, 26%);
+  border: 2px solid hsl(249, 10%, 26%);
 }
 
 input::placeholder {
@@ -97,18 +104,43 @@ input[type="submit"] {
   background-color: var(--primary-two);
   font-family: inherit;
   color: #fff;
-  font-weight: 600;
+  letter-spacing: 1px;
+  font-weight: 400;
   transition: all 0.1s ease;
+  box-shadow: hsl(154, 59%, 41%) 0px 4px 0px;
 }
 
 input[type="submit"]:hover {
   border: 1px solid transparent;
   cursor: pointer;
-  background-color: hsl(154, 59%, 41%);
+  background-color: hsl(154, 59%, 61%);
+  box-shadow: hsl(154, 59%, 51%) 0px 4px 0px;
 }
 
 input[type="submit"]:active {
   transform: translateY(3px);
+}
+
+.input-error {
+  border: 2px solid hsl(0, 100%, 74%);
+  color: var(--primary-one);
+  position: relative;
+}
+
+.input-error::after {
+  content: "";
+  background-image: url(images/icon-error.svg);
+  position: absolute;
+  display: block;
+  background-color: #fff;
+  height: 5rem;
+  width: 5rem;
+}
+
+.error-message {
+  text-align: right;
+  color: var(--primary-one);
+  font-size: 1.4rem;
 }
 
 .form-terms {
@@ -118,17 +150,21 @@ input[type="submit"]:active {
 }
 
 .form-terms span {
+  font-weight: 700;
   color: var(--primary-one);
 }
 
 /* Footer */
 .attribution {
-  font-size: 1.1rem;
+  padding: 0 1.2rem;
+  font-size: 1.4rem;
   text-align: center;
+  line-height: 1.7;
+  animation: moveInBottom 1.65s ease;
 }
 
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--neutral-one);
 }
 
 /* BELOW 1040 PX */
@@ -152,11 +188,36 @@ input[type="submit"]:active {
 
 /* BELOW 600 PX */
 @media (max-width: 37.5em) {
+  body {
+    background-image: url(images/bg-intro-mobile.png);
+  }
+
   section {
     padding: 2.4rem;
   }
 
   .main-heading {
     font-size: 3.2rem;
+  }
+
+  form {
+    padding: 2.4rem;
+  }
+
+  .attribution {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

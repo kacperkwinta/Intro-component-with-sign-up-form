@@ -37,10 +37,35 @@
             Try it free 7 days then $20/mo. thereafter
           </div>
           <form action="#">
-            <input type="text" name="firstName" placeholder="First Name" />
-            <input type="text" name="lastName" placeholder="Last Name" />
-            <input type="email" name="email" placeholder="Email Address" />
-            <input type="password" name="password" placeholder="Password" />
+            <input
+              class="input"
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              required
+            />
+            <p class="error-message">First name</p>
+            <input
+              class="input input-error"
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              required
+            />
+            <input
+              class="input"
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
+            />
+            <input
+              class="input"
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
             <input type="submit" value="CLAIM YOUR FREE TRIAL" />
 
             <p class="form-terms">
@@ -57,8 +82,11 @@
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
-        >. Coded by <a href="https://github.com/kacperkwinta">Kacper Kwinta</a>.
+        >. Coded with 🖤 by
+        <a href="https://github.com/kacperkwinta">Kacper Kwinta</a>.
       </p>
     </footer>
+
+    <script src="form-validation.js"></script>
   </body>
 </html>
