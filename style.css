@@ -80,6 +80,10 @@ form {
   gap: 1.8rem;
 }
 
+.input-wrapper {
+  position: relative;
+}
+
 input {
   display: block;
   width: 100%;
@@ -89,6 +93,7 @@ input {
   font-family: inherit;
   font-weight: 600;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 input:hover {
@@ -107,11 +112,11 @@ input[type="submit"] {
   letter-spacing: 1px;
   font-weight: 400;
   transition: all 0.1s ease;
+  border: none;
   box-shadow: hsl(154, 59%, 41%) 0px 4px 0px;
 }
 
 input[type="submit"]:hover {
-  border: 1px solid transparent;
   cursor: pointer;
   background-color: hsl(154, 59%, 61%);
   box-shadow: hsl(154, 59%, 51%) 0px 4px 0px;
@@ -119,28 +124,6 @@ input[type="submit"]:hover {
 
 input[type="submit"]:active {
   transform: translateY(3px);
-}
-
-.input-error {
-  border: 2px solid hsl(0, 100%, 74%);
-  color: var(--primary-one);
-  position: relative;
-}
-
-.input-error::after {
-  content: "";
-  background-image: url(images/icon-error.svg);
-  position: absolute;
-  display: block;
-  background-color: #fff;
-  height: 5rem;
-  width: 5rem;
-}
-
-.error-message {
-  text-align: right;
-  color: var(--primary-one);
-  font-size: 1.4rem;
 }
 
 .form-terms {
@@ -154,6 +137,30 @@ input[type="submit"]:active {
   color: var(--primary-one);
 }
 
+/*********************/
+/* FORM ERROS STYLES */
+/*********************/
+.input-error {
+  border: 2px solid hsl(0, 100%, 74%);
+  border-radius: 4px;
+  color: var(--primary-one);
+}
+
+.error-message {
+  margin-top: -1.4rem;
+  font-style: italic;
+  text-align: right;
+  color: var(--primary-one);
+  font-size: 1.3rem;
+}
+
+.error-icon {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translate(50%, -50%);
+}
+
 /* Footer */
 .attribution {
   padding: 0 1.2rem;
@@ -165,6 +172,10 @@ input[type="submit"]:active {
 
 .attribution a {
   color: var(--neutral-one);
+}
+
+.hidden {
+  display: none;
 }
 
 /* BELOW 1040 PX */
